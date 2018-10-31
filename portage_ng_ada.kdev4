@@ -1,4 +1,4 @@
 [Project]
-Name=portage_ng_ada_ada
+Name=portage_ng_ada
 Manager=KDevCustomMakeManager
 VersionControl=kdevgit

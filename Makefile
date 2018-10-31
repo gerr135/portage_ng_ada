@@ -1,6 +1,13 @@
-TARGET = run_portage_ng_ada
-SOURCES = src/*.ad?
+all:
+	STYLE=debug gnatmake -Pportage.gpr
 
-# rule to link the program
-portage_ng_ada: $(SOURCES)
-	gprbuild -P portage_ng_ada.gpr
+final:
+	STYLE=final gnatmake -Pportage.gpr
+
+check:
+	cd src
+	gnatgcc -c -gnatc -gnat05 -Ilib list_deps.adb
+	cd ..
+
+clean:
+	rm -f obj/* obj_fin/* generate_stubs track_deps

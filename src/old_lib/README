@@ -1,0 +1,8 @@
+This is an old code, from before Ada' collections were a standard issue. So, here I made
+use of booch collection (many of its components were since integrated in satndart Ada).
+
+NOTE: the top README says booch_components are just emerge away. Unfortunately, since I
+left Gentoo (due to RL time constraints) Ada in Gentoo was rather downsized and
+aggressively simplified. I don;t thing booch_components are in the starnard tree any more.
+So you would have to download them separately and either copy needed files over or point
+gnat to their dir.

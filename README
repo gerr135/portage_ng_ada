@@ -1,0 +1,44 @@
+For install instructions see INSTALL
+
+This package contains a prototype code I wrote to illustrate
+what can be expected if Ada language is used to develop portage-ng.
+Keep in mind the illustratory purpose of the code. The set problem is quite limited
+and would not of itself require all the abstractions I employed. However the real
+implementation is very likely to have even higher level of separation.
+
+You might be afraid of going through the code, as I do not expect many people
+to know Ada. However do not be! Follow right in. You are likely to be pleasantly
+surprised, as Ada was designed for greater readability. I put comments at a few
+places that I felt were more specific. Plus I did some explanations on algorithm
+flow. All in all I would expect this code to be eradable. If you have a problem
+with a certain part of it, please let me know!
+
+The model:
+The code does a very basic dependency tracking. There are no version numbers
+and subdirectories (as these would just add complicating details and not serve
+to enhance the illustration. Besides I toied with this prototype only for a few days).
+Ebuild files only contain DEPEND="..." strings, you can also use 3 useflags:
+flag1, flag2, flag3 - a very unexpected names :).
+
+Two top-level procedures that compile into executables are provided:
+
+trace_dep[.adb] - the "main" unit that performs dependency tracking, and
+
+generate_stubs[.adb] - to let you quickly generate bunch of .ebuild files
+	randomly interconnected with (optional) dependencies. I recommend just
+	simply using it, however below I describe .ebuild file format supported
+	by dependency tracker.
+
+Both programs come with help output by -h switch. Both (and other sources
+as were appropriate) have quite a few comments describing the flow of execution.
+As the primary purpose of this package is language demonstration, I am simply
+going to refere everybody to the code at this point ;).
+
+.ebuild file format:
+1. File should contain DEPEND="..." entry
+2. It may contain other things, but they are ignored.
+3. DEPEND string is supposed to contain a collection os either pkg_name  or
+flagx? ( pkg_name ) 's whitespace (space/tab) separated. All in one string or
+arbitrarily divided into multiple strings. The dependencies must be surrounded by
+quotation marks!
+

@@ -1,0 +1,13 @@
+proto_portage2 design
+
+Goals
+1. Create caching dependency tracker
+1.1 Quick store/retreaval of the cache
+1.2 Minimal memory requirements
+2. Possibility to run in daemon mode
+
+Approach
+1. Do not cache leafs, but cache all system packages
+1.1 Cache only nodes having >=n dependants? Not trivial.
+2. Goals 1.1 & 1.2
+	- Digraph representation

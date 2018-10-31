@@ -1,0 +1,29 @@
+Install instructions.
+
+Autotools are an overkill for this demonstration. Setting them up would have taken
+more time than I spent on the whole suit :), howeher a very basic Makefile
+is all what is necessary, and even that is provided mostly for the easy
+"make clean" functionality, as both programs can be simply built with one command (each).
+
+Prerequesits:
+you naturally need gnat (a gcc-based Ada compiler). I also made use of Booch components.
+Both are available im portage, just emerge away:
+
+emerge gnat booch_components
+
+gnat-3.15p is the latest stable version. There are few alpha versions of gnat-5.0 in portage
+as well, but I would recommend at this time to stick with 3.15p, as
+1. It is rock-stable
+2. You get bunch of docs and will be able to emerge asis to get few small
+	but usefull tools. However the presented code should compile fine with either version.
+As such, the ~arch users might want to add >=dev-lang/gnat-5.0_pre20030822
+to their /etc/portage/package.mask
+
+Make sure you parsed /etc/profile and, after you installled booch_components,
+that /etc/env.d/55booch_components has been parsed as well. If you have more than
+one library from dev-ada installed you might need to manually do
+. /etc/env.d/55booch_components
+until bug #32188 is resolved
+
+After that just run make in proto_portage directory.
+make clean  to wipe generates objects and executables
