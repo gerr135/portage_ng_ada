@@ -1,13 +1,12 @@
 all:
-	STYLE=debug gnatmake -Pportage.gpr
-
-final:
-	STYLE=final gnatmake -Pportage.gpr
-
-check:
-	cd src
-	gnatgcc -c -gnatc -gnat05 -Ilib list_deps.adb
-	cd ..
+	. /etc/profile
+	#. /etc/env.d/55booch_components;
+	mkdir -p obj bin
+	cd obj; \
+		gnatmake -I../lib -I../src -O2 generate_stubs.adb; \
+		gnatmake -I../lib -I../src -O2 track_deps; \
+		mv generate_stubs track_deps ../bin
+	#cd ..
 
 clean:
-	rm -f obj/* obj_fin/* generate_stubs track_deps
+	rm obj/*.{ali,o} bin/*

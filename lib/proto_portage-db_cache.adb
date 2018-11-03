@@ -167,7 +167,7 @@ function Get_Dependency_List  -- the "principal" method
 begin
 	--Put_Line("graph capacity: " & Number_Of_Vertices(Cache.graph)'Img);
 	-- that's the only debug feedback hook I needed here!
-
+	
 	Vertex_At(Cache.graph, key, V, Vertex_Found);
 	if not Vertex_Found then
 		raise Key_Not_Found;
@@ -239,7 +239,7 @@ procedure Regen_From_TextTree (
 		Debug : Boolean := False) is              Separate;
 	-- this procedure got too big, so I decided to put it in a separate file
 	-- to enhance readability.
-	-- Besides this will serve as a nice illustration of one more аda feature :)
+	-- Besides this will serve as a nice illustration of one more da feature :)
 
 
 procedure set_Cache_Location (Cache : in out Dependency_Cache;

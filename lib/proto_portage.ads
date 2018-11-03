@@ -6,7 +6,7 @@
 -- besides there isn't much here
 
 
--- Copyright (c) 2006 George Shapovalov <george@gentoo.org>.  All rights reserved.
+-- Copyright (c) 2003 George Shapovalov <george@gentoo.org>.  All rights reserved.
 
 -- # This program is free software; you can redistribute it and/or
 -- # modify it under the terms of the GNU General Public License as
@@ -41,9 +41,9 @@ package Proto_Portage is
 
 
 type Ebuild_Key is private;
-	-- Only rarely an access to full ebuild contents is needed
-	-- the "_Key" part of the name is there to emphasize this.
-	-- this is basically a habdle that will sit in the vertices of the graph.
+	-- we will need access to all ebuild contents and other "large" parts only rarely
+	-- the _Key is to emphasize this.
+	-- Will sit in vertices of the graph
 
 function Create_Key(Name : String)  return Ebuild_Key;
 function Get_Name(Key : Ebuild_Key) return String;

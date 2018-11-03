@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Characters.Latin_1; use Ada.Characters;
--- with GNAT.IO_Aux; use GNAT.IO_Aux;
+with GNAT.IO_Aux; use GNAT.IO_Aux;
 
 package body Proto_Portage.Support is
 
